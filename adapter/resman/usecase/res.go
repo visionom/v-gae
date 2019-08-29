@@ -8,13 +8,13 @@ import (
 	"github.com/visionom/v-gae/adapter/mysql"
 	"github.com/visionom/v-gae/adapter/resman/domain"
 	"github.com/visionom/v-gae/adapter/resman/errors"
+	"github.com/visionom/v-gae/adapter/resman/ifs"
 	db "github.com/visionom/v-gae/adapter/resman/infra"
-	"github.com/visionom/v-gae/adapter/resman/interfaces"
 )
 
 type ComRepoImpl struct{}
 
-func NewComRepo() interfaces.ComRepo {
+func NewComRepo() ifs.ComRepo {
 	return &ComRepoImpl{}
 }
 

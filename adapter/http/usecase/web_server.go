@@ -11,7 +11,7 @@ import (
 
 	"github.com/visionom/v-gae/adapter/http/config"
 	"github.com/visionom/v-gae/adapter/http/domain"
-	"github.com/visionom/v-gae/adapter/http/interfaces"
+	"github.com/visionom/v-gae/adapter/http/ifs"
 )
 
 type IrisWebServer struct {
@@ -21,7 +21,7 @@ type IrisWebServer struct {
 	root     iris.Party
 }
 
-func NewWebServer(config *config.HTTPConfig) interfaces.WebServer {
+func NewWebServer(config *config.HTTPConfig) ifs.WebServer {
 
 	_logger := logger.New(logger.Config{
 		// Status displays status code

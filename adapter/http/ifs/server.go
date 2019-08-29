@@ -1,4 +1,4 @@
-package interfaces
+package ifs
 
 import (
 	"github.com/kataras/iris/context"

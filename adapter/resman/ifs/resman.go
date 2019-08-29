@@ -1,4 +1,4 @@
-package interfaces
+package ifs
 
 import "github.com/visionom/v-gae/adapter/resman/domain"
 
