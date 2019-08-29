@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS resman;
+CREATE DATABASE resman;
+
+USE resman;
+
+DROP TABLE IF EXISTS res;
+CREATE TABLE res (
+  id   VARCHAR(256)  NOT NULL,
+  name VARCHAR(256) NOT NULL,
+  info JSON         NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE (name)
+);
+
+DROP TABLE IF EXISTS tags;
+CREATE TABLE tags (
+  res VARCHAR(256) NOT NULL,
+  k   VARCHAR(32)  NOT NULL,
+  v   VARCHAR(32)  NOT NULL,
+  PRIMARY KEY (res, k, v)
+);
