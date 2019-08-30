@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/visionom/v-gae/log"
+
 	"github.com/visionom/v-gae/adapter/mysql"
 	"github.com/visionom/v-gae/adapter/resman/domain"
 	"github.com/visionom/v-gae/adapter/resman/errors"
@@ -21,9 +23,8 @@ func NewComRepo() ifs.ComRepo {
 func (*ComRepoImpl) NewRes(reses []domain.Res) error {
 	for _, res := range reses {
 		if res.ID == "" || res.Name == "" {
-			fmt.Println("warning: id or name is empty")
-			//TODO: add warning
-			continue
+			log.E("id or name is empty")
+			return errors.New("Fail to create resource because id or name is empty")
 		}
 		if res.Info == nil {
 			res.Info = json.RawMessage{'{', '}'}
@@ -74,7 +75,7 @@ func (*ComRepoImpl) NewRes(reses []domain.Res) error {
 func (*ComRepoImpl) DelRes(ids []string) error {
 	for _, id := range ids {
 		if id == "" {
-			fmt.Println("warning: id or name is empty")
+			log.W("id or name is empty")
 			//TODO: add warning
 			continue
 		}
